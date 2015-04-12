@@ -2,6 +2,7 @@
   "name": "util-helpers",
   "version": "0.0.1",
   "description": "Common utility helpers",
+  "repository": "https://github.com/Respondly/util-helpers.git",
   "main": "./index.coffee",
   "dependencies":
   {

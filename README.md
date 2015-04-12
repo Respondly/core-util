@@ -1,10 +1,10 @@
-# Helpers
-Various utility methods.
+# Util Helpers
+Common utility helpers.
 
 
 ## Installation
 
-    npm install
+    npm install util-helpers
 
 ## Test
 
