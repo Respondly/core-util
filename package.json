@@ -1,0 +1,19 @@
+{
+  "name": "util-helpers",
+  "version": "0.0.1",
+  "description": "Common utility helpers",
+  "main": "./index.coffee",
+  "dependencies":
+  {
+    "coffee-script": "^1.9.1",
+    "lodash": "^3.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.1",
+    "chai": "^2.2.0"
+  },
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script/register",
+    "tdd":  "mocha --compilers coffee:coffee-script/register --watch"
+  }
+}
