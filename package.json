@@ -14,7 +14,7 @@
     "chai": "^2.2.0"
   },
   "scripts": {
-    "test": "mocha --compilers coffee:coffee-script/register",
-    "tdd":  "mocha --compilers coffee:coffee-script/register --watch"
+    "test": "./node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register",
+    "tdd":  "./node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register --watch"
   }
 }
