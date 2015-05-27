@@ -1,5 +1,15 @@
 _ = require('lodash')
 
+# If we're on an environment without localStore, emulate it with a singleton obj
+unless localStorage?
+  store = {}
+  localStorage =
+    removeItem: (key) ->
+      delete store[key]
+    setItem: (key, value) ->
+      store[key] = value
+    getItem: (key) ->
+      store[key]
 
 module.exports =
   ###
