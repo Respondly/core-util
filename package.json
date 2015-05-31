@@ -1,8 +1,8 @@
 {
-  "name": "util-helpers",
-  "version": "0.0.1",
+  "name": "core-util",
+  "version": "0.0.2",
   "description": "Common utility helpers",
-  "repository": "https://github.com/Respondly/util-helpers.git",
+  "repository": "https://github.com/Respondly/core-util.git",
   "main": "./index.coffee",
   "dependencies":
   {

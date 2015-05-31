@@ -1,10 +1,10 @@
-# Util Helpers
+# Core Util
 Common utility helpers.
 
 
 ## Installation
 
-    npm install util-helpers
+    npm install core-util
 
 ## Test
 
