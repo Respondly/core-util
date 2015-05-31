@@ -1,10 +1,10 @@
-timer = require('./src/timer.coffee')
-util  = require('./src/util.coffee')
-func  = require('./src/func.coffee')
+timer = require('./core-util/timer')
+util  = require('./core-util/util')
+func  = require('./core-util/func')
 
 module.exports =
-  Handlers: require('./src/Handlers.coffee')
-  LocalStorage: require('./src/LocalStorage.coffee')
+  Handlers: require('./core-util/Handlers')
+  LocalStorage: require('./core-util/LocalStorage')
 
   delay: timer.delay
   interval: timer.interval

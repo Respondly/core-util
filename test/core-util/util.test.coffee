@@ -1,5 +1,5 @@
 expect = require('chai').expect
-util = require('../index.coffee')
+util = require('../../')
 
 
 
