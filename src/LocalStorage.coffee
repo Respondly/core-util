@@ -1,15 +1,31 @@
 _ = require('lodash')
 
-# If we're on an environment without localStore, emulate it with a singleton obj
-unless localStorage?
-  store = {}
-  localStorage =
-    removeItem: (key) ->
-      delete store[key]
-    setItem: (key, value) ->
-      store[key] = value
-    getItem: (key) ->
-      store[key]
+
+# NB: `localStorage` will not be available when
+#      running within environments like JSDom.
+store =
+  _store: {}
+
+  removeItem: (key) ->
+    if localStorage?
+      localStorage.removeItem(key)
+    else
+      delete @_store[key]
+
+  setItem: (key, value) ->
+    if localStorage?
+      localStorage.setItem(key, value)
+    else
+      @_store[key] = value
+
+  getItem: (key) ->
+    if localStorage?
+      localStorage.getItem(key)
+    else
+      @_store[key]
+
+
+
 
 module.exports =
   ###
@@ -22,7 +38,7 @@ module.exports =
   prop: (key, value, options = {}) ->
     if value is null
       # REMOVE.
-      localStorage.removeItem(key)
+      store.removeItem(key)
 
     else if value isnt undefined
       # WRITE.
@@ -38,11 +54,11 @@ module.exports =
                 'object'
 
       writeValue = { value:value, type:type }
-      localStorage.setItem(key, JSON.stringify(writeValue))
+      store.setItem(key, JSON.stringify(writeValue))
 
     else
       # READ ONLY.
-      if json = localStorage.getItem(key)
+      if json = store.getItem(key)
         json = JSON.parse(json)
         value = switch json.type
                   when 'null', 'bool', 'string' then json.value
