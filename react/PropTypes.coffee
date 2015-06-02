@@ -1,18 +1,25 @@
 'use strict'
-React = require('react')
 _ = require('lodash')
-
+React = require('react')
 PropTypes = _.clone(React.PropTypes)
 
 
+# Store the parameter values on the returned
+# validator functions so that external tools
+# (such the UIHarness) can display the values.
+
 PropTypes.oneOf = (expectedValues) ->
-  # Store the enum values on the returned
-  # validator function so that the ui-harness
-  # can display the values for editing.
   result = React.PropTypes.oneOf(expectedValues)
   result.expectedValues = expectedValues
   result
 
 
+PropTypes.shape = (types) ->
+  result = React.PropTypes.shape(types)
+  result.types = types
+  result
 
+
+
+# ----------------------------------------------------------------------------
 module.exports = PropTypes
