@@ -8,15 +8,17 @@ PropTypes = _.clone(React.PropTypes)
 # validator functions so that external tools
 # (such the UIHarness) can display the values.
 
-PropTypes.oneOf = (expectedValues) ->
-  result = React.PropTypes.oneOf(expectedValues)
-  result.expectedValues = expectedValues
+PropTypes.oneOf = (enumValues) ->
+  result = React.PropTypes.oneOf(enumValues)
+  result.oneOf = enumValues
+  result.isRequired.oneOf = enumValues
   result
 
 
-PropTypes.shape = (types) ->
-  result = React.PropTypes.shape(types)
-  result.types = types
+PropTypes.shape = (shape) ->
+  result = React.PropTypes.shape(shape)
+  result.shape = shape
+  result.isRequired.shape = shape
   result
 
 

@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports =
   renderToStaticMarkup: require('./renderToStaticMarkup')
   renderIntoDocument: require('./renderIntoDocument')
