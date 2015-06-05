@@ -3,7 +3,7 @@ expect = require('chai').expect
 { PropTypes } = require('core-util/react')
 
 
-describe.only 'React', ->
+describe 'React', ->
   describe 'PropTypes.oneOf', ->
     it 'stores enum values on return object', ->
       result = PropTypes.oneOf(['one', 'two'])
