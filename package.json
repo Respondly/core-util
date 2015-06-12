@@ -14,7 +14,7 @@
     "chai": "^2.2.0"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --recursive --compilers coffee:coffee-script/register",
+    "test": "./node_modules/mocha/bin/mocha --colors --recursive --compilers coffee:coffee-script/register --colors",
     "tdd":  "./node_modules/mocha/bin/mocha --recursive --compilers coffee:coffee-script/register --watch"
   }
 }
