@@ -31,47 +31,47 @@ describe 'Validate PropTypes', ->
 
   describe 'primitives (bool, string, number)', ->
     propTypes =
-      bool: PropTypes.bool
-      string: PropTypes.string
-      number: PropTypes.number
+      myBool: PropTypes.bool
+      myString: PropTypes.string
+      myNumber: PropTypes.number
 
     describe 'is valid', ->
       it 'on all properties', ->
         props =
-          bool: true
-          string: 'Foo'
-          number: 123
+          myBool: true
+          myString: 'Foo'
+          myNumber: 123
         result = Validator(propTypes).validate(props)
         expect(result.isValid).to.equal true
 
       it 'when partial set of properties is passed', ->
-        result = Validator(propTypes).validate({ string:'Foo' })
+        result = Validator(propTypes).validate({ myString:'Foo' })
         expect(result.isValid).to.equal true
 
       it 'when partial undefined properties values are passed', ->
-        result = Validator(propTypes).validate({ string:undefined, number:undefined, bool:undefined })
+        result = Validator(propTypes).validate({ myString:undefined, myNumber:undefined, myBool:undefined })
         expect(result.isValid).to.equal true
 
       it 'when partial null properties values are passed', ->
-        result = Validator(propTypes).validate({ string:null, number:null, bool:null })
+        result = Validator(propTypes).validate({ myString:null, myNumber:null, myBool:null })
         expect(result.isValid).to.equal true
 
 
     describe 'is not valid', ->
       it 'when wrong type passed (bool)', ->
-        result = Validator(propTypes).validate({ bool:123 })
+        result = Validator(propTypes).validate({ myBool:123 })
         expect(result.isValid).to.equal false
-        expect(result.errors.bool).to.exist
+        expect(result.errors.myBool).to.exist
 
       it 'when wrong type passed (string)', ->
-        result = Validator(propTypes).validate({ string:123 })
+        result = Validator(propTypes).validate({ myString:123 })
         expect(result.isValid).to.equal false
-        expect(result.errors.string).to.exist
+        expect(result.errors.myString).to.exist
 
       it 'when wrong type passed (number)', ->
-        result = Validator(propTypes).validate({ number:'hello' })
+        result = Validator(propTypes).validate({ myNumber:'hello' })
         expect(result.isValid).to.equal false
-        expect(result.errors.number).to.exist
+        expect(result.errors.myNumber).to.exist
 
       it 'when required value is passed', ->
         validator = Validator({ text: PropTypes.string.isRequired })
