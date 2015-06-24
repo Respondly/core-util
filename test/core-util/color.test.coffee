@@ -4,7 +4,7 @@ expect = require('chai').expect
 
 
 describe 'color', ->
-  describe.only '.fromAlpha', ->
+  describe '.fromAlpha', ->
     it 'returns the given string (no-op)', ->
       expect(color.fromAlpha('rgba(0,0,0,0.3')).to.equal 'rgba(0,0,0,0.3'
 
